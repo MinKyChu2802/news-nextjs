@@ -13,16 +13,18 @@ const StyledNotification = styled.div`
 `;
 
 const StyledNumberNotify = styled.div`
-  border-radius: 50%;
+  border-radius: 48%;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #f15412;
+  color: #fff;
+  background: #f15412;
   position: absolute;
-  top: 0;
-  right: 10px;
+  top: -4px;
+  right: 7px;
   font-size: 16px;
   font-weight: 600;
+  padding: 3px;
 `;
 
 const Notification = (props) => {
