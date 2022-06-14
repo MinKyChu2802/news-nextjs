@@ -6,7 +6,7 @@ const StyledNews = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   min-width: 321px;
-  height: 224px;
+  min-height: 224px;
   border-radius: 8px;
   padding: 80px 8px 8px;
   display: flex;

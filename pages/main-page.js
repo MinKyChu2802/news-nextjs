@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import LastestNews from '../components/news/latest-news/LastestNews';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Category from '../components/category/Category';
+import Articles from '../components/news/articles/Articles';
 
 const StyledMainPage = styled.div`
   padding: 0 15px;
@@ -89,7 +90,12 @@ const StyledCategory = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+  margin-bottom: 8px;
 `;
+
+const StyledArticles = styled.div`
+
+`
 
 const categorys = [
   { category: 'Healthy', id: 1, isActived: false },
@@ -108,13 +114,9 @@ function MainPage() {
 
   useEffect(() => {
     setCategoryArr(categorys);
-    console.log('Quy', categoryArr);
   }, []);
 
-  const handleClick = (id) => {
-    let index = categorys.findIndex((item) => item.id === id);
-    categorys[index].isActived = true;
-  };
+  
 
   return (
     <StyledMainPage>
@@ -173,12 +175,22 @@ function MainPage() {
         {categoryArr.map((item) => (
           <Category
             category={item.category}
-            isActive={item.isActived}
-            handleClick={() => handleClick(item.id)}
+            isActived={item.isActived}
+            setCategory={setCategoryArr}
+            id={item.id}
             key={item.id}
           />
         ))}
       </StyledCategory>
+
+      <StyledArticles>
+        <Articles author="Claudia Assis" urlToImage="https://cleantechnica.com/files/2022/05/Red-Mach-E-City-Ford-Press-Photo.png"  publishedAt="2022-06-14T16:50:21Z" title="Ford Issues Stop Sale on Mustang Mach-E, Recalls 50,000" url="https://cleantechnica.com/2022/06/14/ford-issues-stop-sale-on-mustang-mach-e-recalls-50000/" />
+        <Articles author="Claudia Assis" urlToImage="https://cleantechnica.com/files/2022/05/Red-Mach-E-City-Ford-Press-Photo.png"  publishedAt="2022-06-14T16:50:21Z" title="Ford Issues Stop Sale on Mustang Mach-E, Recalls 50,000" url="https://cleantechnica.com/2022/06/14/ford-issues-stop-sale-on-mustang-mach-e-recalls-50000/" />
+        <Articles author="Claudia Assis" urlToImage="https://cleantechnica.com/files/2022/05/Red-Mach-E-City-Ford-Press-Photo.png"  publishedAt="2022-06-14T16:50:21Z" title="Ford Issues Stop Sale on Mustang Mach-E, Recalls 50,000" url="https://cleantechnica.com/2022/06/14/ford-issues-stop-sale-on-mustang-mach-e-recalls-50000/" />
+        <Articles author="Claudia Assis" urlToImage="https://cleantechnica.com/files/2022/05/Red-Mach-E-City-Ford-Press-Photo.png"  publishedAt="2022-06-14T16:50:21Z" title="Ford Issues Stop Sale on Mustang Mach-E, Recalls 50,000" url="https://cleantechnica.com/2022/06/14/ford-issues-stop-sale-on-mustang-mach-e-recalls-50000/" />
+        <Articles author="Claudia Assis" urlToImage="https://cleantechnica.com/files/2022/05/Red-Mach-E-City-Ford-Press-Photo.png"  publishedAt="2022-06-14T16:50:21Z" title="Ford Issues Stop Sale on Mustang Mach-E, Recalls 50,000" url="https://cleantechnica.com/2022/06/14/ford-issues-stop-sale-on-mustang-mach-e-recalls-50000/" />
+        <Articles author="Claudia Assis" urlToImage="https://cleantechnica.com/files/2022/05/Red-Mach-E-City-Ford-Press-Photo.png"  publishedAt="2022-06-14T16:50:21Z" title="Ford Issues Stop Sale on Mustang Mach-E, Recalls 50,000" url="https://cleantechnica.com/2022/06/14/ford-issues-stop-sale-on-mustang-mach-e-recalls-50000/" />
+      </StyledArticles>
     </StyledMainPage>
   );
 }
