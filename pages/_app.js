@@ -1,6 +1,5 @@
+import Layout from '../components/layout';
 import '../styles/globals.css';
-import Header from '../components/header/Header';
-import Footer from '../components/footer/Footer';
 import { useWindowSize } from '../utils/common';
 
 function MyApp({ Component, pageProps }) {
@@ -8,12 +7,9 @@ function MyApp({ Component, pageProps }) {
 
   console.log(sizeScreen);
   return (
-    <div>
-      <Header />
+    <Layout>
       <Component {...pageProps} />
-
-      <Footer />
-    </div>
+    </Layout>
   );
 }
 
