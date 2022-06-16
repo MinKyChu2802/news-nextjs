@@ -28,10 +28,20 @@ const StyledCategory = styled.div`
 `;
 
 const Category = (props) => {
-  const { category, isActive, handleClick } = props;
+  const { category, isActived, setCategory, id } = props;
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    setCategory((prev) => {
+      let newCategory = [...prev];
+      let index = newCategory.findIndex((item) => item.id === id);
+      newCategory[index].isActived = !isActived;
+      return [...newCategory];
+    });
+  };
 
   return (
-    <StyledCategory className={`${isActive ? 'isActive' : ''}`} onClick={() => handleClick()}>
+    <StyledCategory className={`${isActived ? 'isActive' : ''}`} onClick={(e) => handleClick(e)}>
       {category}
     </StyledCategory>
   );
