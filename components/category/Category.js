@@ -3,6 +3,9 @@ import styled from 'styled-components';
 
 const StyledCategory = styled.div`
   background: #ffffff;
+
+  display: flex;
+  align-items: center;
   border: 1px solid #f0f1fa;
   border-radius: 16px;
   font-weight: 600;
@@ -28,7 +31,7 @@ const StyledCategory = styled.div`
 `;
 
 const Category = (props) => {
-  const { category, isActived, setCategory, id } = props;
+  const { category, isActived, setCategory, id, children, isFilter, openModal } = props;
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -38,11 +41,15 @@ const Category = (props) => {
       newCategory[index].isActived = !isActived;
       return [...newCategory];
     });
+
+    if (isFilter) {
+      openModal();
+    }
   };
 
   return (
     <StyledCategory className={`${isActived ? 'isActive' : ''}`} onClick={(e) => handleClick(e)}>
-      {category}
+      {children} {category}
     </StyledCategory>
   );
 };

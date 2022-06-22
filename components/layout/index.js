@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Footer from '../footer/Footer';
+// import Footer from '../footer/Footer';
 import Header from '../header/Header';
 import { useRouter } from 'next/router';
 
@@ -17,7 +17,7 @@ function Layout({ children }) {
     <div className="layout">
       <Header />
       <div>{children}</div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
