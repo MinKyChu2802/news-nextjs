@@ -1,4 +1,5 @@
 import { useState, useLayoutEffect } from 'react';
+import moment from 'moment';
 
 /**
  * check size screen
@@ -15,4 +16,14 @@ export const useWindowSize = () => {
     return () => window.removeEventListener('resize', updateSize);
   }, []);
   return size;
+};
+
+/**
+ *
+ * Format published date
+ * @param {*} date
+ * @returns
+ */
+export const formatDate = (date) => {
+  return moment(date).format('dddd, DD MMM YYYY');
 };
